@@ -206,7 +206,7 @@ export class TriangleColorPicker extends React.PureComponent {
 
   render() {
     const { pickerSize } = this.state
-    const { oldColor, style } = this.props
+    const { oldColor, style, ButtonComponent = TouchableOpacity } = this.props
     const color = this._getColor()
     const { h } = color
     const angle = this._hValueToRad(h)
@@ -261,7 +261,7 @@ export class TriangleColorPicker extends React.PureComponent {
             activeOpacity={0.7}
           />
           }
-          <TouchableOpacity
+          <ButtonComponent
             style={[styles.colorPreview, { backgroundColor: selectedColor }]}
             onPress={this._onColorSelected}
             activeOpacity={0.7}
